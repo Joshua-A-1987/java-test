@@ -26,7 +26,8 @@ jobs:
     - name: Build and Push Docker Image to Docker Hub
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: joshuaa1987/testing-test:latest
+        image: joshuaa1987/testing-test
+        tags: latest, master-${{ github.sha }} # fixes error
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
